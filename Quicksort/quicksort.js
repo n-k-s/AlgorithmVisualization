@@ -1,59 +1,81 @@
+let values = [];
+let w = 10;
+
+let states = [];
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(windowWidth, windowHeight);
+    values = new Array(floor(width / w));
+    for (let i = 0; i < values.length; i++) {
+        values[i] = random(height);
+        states[i] = -1;
+    }
+    quickSort(values, 0, values.length - 1);
 }
-let DVD = {
 
-    xDiagIncreasing: true,
-    yDiagIncreasing: false,
-    x: 300,
-    y: 150
+async function quickSort(arr, start, end) {
+    if (start >= end) {
+        return;
+    }
+    let index = await partition(arr, start, end);
+    states[index] = -1;
 
+    await Promise.all([
+        quickSort(arr, start, index - 1),
+        quickSort(arr, index + 1, end)
+    ]);
 }
+
+async function partition(arr, start, end) {
+    for (let i = start; i < end; i++) {
+        states[i] = 1;
+    }
+
+    let pivotValue = arr[end];
+    let pivotIndex = start;
+    states[pivotIndex] = 0;
+    for (let i = start; i < end; i++) {
+        if (arr[i] < pivotValue) {
+            await swap(arr, i, pivotIndex);
+            states[pivotIndex] = -1;
+            pivotIndex++;
+            states[pivotIndex] = 0;
+        }
+    }
+    await swap(arr, pivotIndex, end);
+
+    for (let i = start; i < end; i++) {
+        if (i != pivotIndex) {
+            states[i] = -1;
+        }
+    }
+
+    return pivotIndex;
+}
+
 function draw() {
+    background(0);
 
-    background(0, 0, 0);
-    noStroke();
-    fill(random(0, 255), random(0, 255), 150);
-    square(DVD.x, DVD.y, 20);
-    if (DVD.xDiagIncreasing)
-    {
-        DVD.x += 1;
-        if(DVD.x > 380)
-        {
-            DVD.xDiagIncreasing = false;
+    for (let i = 0; i < values.length; i++) {
+        noStroke();
+        if (states[i] == 0) {
+            fill('#E0777D');
+        } else if (states[i] == 1) {
+            fill('#D6FFB7');
+        } else {
+            fill(255);
         }
+        rect(i * w, height - values[i], w, values[i]);
     }
-    else if (!DVD.xDiagIncreasing)
-    {
-        DVD.x -= 1;
-        if(DVD.x < 0)
-        {
-            DVD.xDiagIncreasing = true;
-        }
-    }
-    if (DVD.yDiagIncreasing)
-    {
-        DVD.y += 1;
-        if(DVD.y > 380)
-        {
-            DVD.yDiagIncreasing = false;
-        }
-    }
-    else if (!DVD.yDiagIncreasing)
-    {
-        DVD.y -= 1;
-        if(DVD.y < 0)
-        {
-            DVD.yDiagIncreasing = true;
-        }
-    }
-
 }
-function mousePressed()
-{
-    DVD.x = mouseX;
-    DVD.y = mouseY;
-    DVD.yDiagIncreasing = false;
-    DVD.xDiagIncreasing = true;
+
+async function swap(arr, a, b) {
+    await sleep(50);
+    let temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
