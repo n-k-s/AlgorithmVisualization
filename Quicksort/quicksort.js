@@ -1,5 +1,5 @@
 let values = [];
-let w = 10;
+let w = 20;
 
 let states = [];
 
