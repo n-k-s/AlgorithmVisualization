@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3004ffe4-4bc7-41ac-8072-22224f7e780c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quicksort/quicksort.js" beforeDir="false" afterPath="$PROJECT_DIR$/Quicksort/quicksort.js" afterDir="false" />
     </list>
@@ -58,7 +59,6 @@
       <workItem from="1573324685031" duration="1417000" />
       <workItem from="1573326776877" duration="13000" />
       <workItem from="1573326791204" duration="180000" />
-      <workItem from="1573329513551" duration="77000" />
     </task>
     <servers />
   </component>
