@@ -1,8 +1,6 @@
 let values = [];
 let w = 11;
-
 let states = [];
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
     values = new Array(floor(width / w));
@@ -12,7 +10,6 @@ function setup() {
     }
     quickSort(values, 0, values.length - 1);
 }
-
 async function quickSort(arr, start, end) {
     if (start >= end) {
         return;
@@ -25,7 +22,6 @@ async function quickSort(arr, start, end) {
         quickSort(arr, index + 1, end)
     ]);
 }
-
 async function partition(arr, start, end) {
     for (let i = start; i < end; i++) {
         states[i] = 1;
@@ -43,16 +39,13 @@ async function partition(arr, start, end) {
         }
     }
     await swap(arr, pivotIndex, end);
-
     for (let i = start; i < end; i++) {
         if (i != pivotIndex) {
             states[i] = -1;
         }
     }
-
     return pivotIndex;
 }
-
 function draw() {
     background(0);
 
@@ -68,14 +61,12 @@ function draw() {
         rect(i * w, height - values[i], w, values[i]);
     }
 }
-
 async function swap(arr, a, b) {
-    await sleep(30);
+    await sleep(50);
     let temp = arr[a];
     arr[a] = arr[b];
     arr[b] = temp;
 }
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

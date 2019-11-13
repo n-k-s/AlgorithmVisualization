@@ -1,6 +1,7 @@
 //initialize the array
 let bubbleArray = new Array(5);
 let timesRan = 0;
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     //create random values in the array
@@ -8,11 +9,11 @@ function setup() {
     {
         bubbleArray[i] = floor(random(100));
     }
-
+    background(255,50,235);
 }
 
 function draw() {
-    background(255,50,235);
+
     if (!isSorted(bubbleArray)) {
         setTimeout(bubbleSort(bubbleArray), 500);
     }
@@ -33,7 +34,6 @@ function bubbleSort(arr)
                 drawBubble(arr);
         }
     }
-    if (timesRan < 2)
         drawBubble(arr);
 }
 function drawBubble(arr)
@@ -41,6 +41,8 @@ function drawBubble(arr)
     for (let i = 0; i < bubbleArray.length; i++)
     {
         console.log(bubbleArray[i]);
+        fill(255,204, 255-( i * 10));
+        circle(i * 95, 150, bubbleArray[i]);
     }
 }
 function isSorted(arr)
@@ -52,5 +54,4 @@ function isSorted(arr)
     }
     timesRan++;
     return true;
-
 }
