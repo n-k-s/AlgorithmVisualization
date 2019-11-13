@@ -9,7 +9,7 @@ function setup() {
     {
         bubbleArray[i] = floor(random(100));
     }
-    background(255,50,235);
+    background(255, 150, 135);
 }
 
 function draw() {
@@ -30,8 +30,6 @@ function bubbleSort(arr)
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
             }
-            if (!isSorted(arr))
-                drawBubble(arr);
         }
     }
         drawBubble(arr);
@@ -40,9 +38,9 @@ function drawBubble(arr)
 {
     for (let i = 0; i < bubbleArray.length; i++)
     {
-        console.log(bubbleArray[i]);
-        fill(255,204, 255-( i * 10));
+        fill(255,204, 155-( i * 10));
         circle(i * 95, 150, bubbleArray[i]);
+        console.log(bubbleArray[i]);
     }
 }
 function isSorted(arr)
