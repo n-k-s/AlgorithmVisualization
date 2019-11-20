@@ -10,19 +10,21 @@ let slider;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    //create random values in the array
+    slider = createSlider(1, 20, 12, 1);
+    slider.position(50,50);
+    //slider.style('width', '80px');
+
     for (let i = 0; i < bubbleArray.length; i++)
     {
         bubbleArray[i] = floor(random(50,100));
     }
     background(255, 150, 135);
-    slider = createSlider(0, 255, 100);
-    slider.position(10, 10);
-    slider.style('width', '80px');
+
 }
 
 function draw() {
-    //let val = slider.value();
+    //let n = slider.value();
+
     if (!isSorted(bubbleArray))
         bubbleSort(bubbleArray);
     background(255, 150, 135);
