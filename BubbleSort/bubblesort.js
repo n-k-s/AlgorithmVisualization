@@ -2,7 +2,7 @@
 let bubbleArray = new Array(9);
 let timesRan = 0;
 let spacing = 50;
-let fr = 20;
+let fr = 1;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -12,16 +12,14 @@ function setup() {
         bubbleArray[i] = floor(random(50,100));
     }
     background(255, 150, 135);
-    noLoop();
 }
 
 function draw() {
-
-    if (!isSorted(bubbleArray)) {
-        //setTimeout(bubbleSort(bubbleArray), 3000);
-    }
+    if (!isSorted(bubbleArray))
+        bubbleSort(bubbleArray);
+    background(255, 150, 135);
     drawBubble(bubbleArray);
-
+    frameRate(fr);
 }
 function bubbleSort(arr)
 {
