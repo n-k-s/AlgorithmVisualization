@@ -21,7 +21,10 @@ function setup() {
     background(255, 150, 135);
 
 }
-
+function reSetup()
+{
+    //todo make this work. When the user changes the slider value (perhaps in draw) call reSetup
+}
 function draw() {
     //let n = slider.value();
 
