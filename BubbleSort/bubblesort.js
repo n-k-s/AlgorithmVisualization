@@ -1,5 +1,5 @@
 //initialize the array
-let bubbleArray = new Array(12);
+let bubbleArray = new Array(4);
 let timesRan = 0;
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
     //create random values in the array
     for (let i = 0; i < bubbleArray.length; i++)
     {
-        bubbleArray[i] = floor(random(100));
+        bubbleArray[i] = floor(random(50,100));
     }
     background(255, 150, 135);
 }
@@ -41,6 +41,8 @@ function drawBubble(arr)
         fill(255,204, 155-( i * 10));
         circle(50 + (i * 95), 150, bubbleArray[i]);
         console.log(bubbleArray[i]);
+        fill(0, 102, 153);
+        text(bubbleArray[i], 50 + (i * 95), 150);
     }
 }
 function isSorted(arr)
