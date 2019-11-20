@@ -6,18 +6,25 @@ let spacing = 80;
 let fr = 1;
 let i = 0;
 let j = 0;
+let slider;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    //create random values in the array
+    slider = createSlider(1, 20, 12, 1);
+    slider.position(50,50);
+    //slider.style('width', '80px');
+
     for (let i = 0; i < bubbleArray.length; i++)
     {
         bubbleArray[i] = floor(random(50,100));
     }
     background(255, 150, 135);
+
 }
 
 function draw() {
+    //let n = slider.value();
+
     if (!isSorted(bubbleArray))
         bubbleSort(bubbleArray);
     background(255, 150, 135);
