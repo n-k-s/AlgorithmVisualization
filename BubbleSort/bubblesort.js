@@ -34,7 +34,6 @@ function bubbleSort(arr)
             }
         }
     }
-        drawBubble(arr);
 }
 function drawBubble(arr)
 {
