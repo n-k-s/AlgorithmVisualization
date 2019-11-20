@@ -9,15 +9,23 @@ function setup() {
     {
         bubbleArray[i] = floor(random(50,100));
     }
-    background(255, 150, 135);
+    background(200, 200, 105);
 }
 
 function draw() {
+<<<<<<< Updated upstream
 
     if (!isSorted(bubbleArray)) {
         setTimeout(bubbleSort(bubbleArray), 500);
     }
     //drawBubble(bubbleArray);
+=======
+    if (!isSorted(bubbleArray))
+        bubbleSort(bubbleArray);
+    background(100, 170, 225);
+    drawBubble(bubbleArray);
+    frameRate(.5);
+>>>>>>> Stashed changes
 }
 function bubbleSort(arr)
 {
@@ -38,10 +46,16 @@ function drawBubble(arr)
 {
     for (let i = 0; i < bubbleArray.length; i++)
     {
+<<<<<<< Updated upstream
         fill(255,204, 155-( i * 10));
         circle(50 + (i * 95), 150, bubbleArray[i]);
+=======
+        fill(0, 165, 200-( i * 20));
+        circle(spacing + (i * 95), 150, bubbleArray[i]);
+>>>>>>> Stashed changes
         console.log(bubbleArray[i]);
-        fill(0, 102, 153);
+        fill(255, 255, 255);
+        stroke(1);
         textAlign(CENTER, CENTER);
         text(bubbleArray[i], 50 + (i * 95), 150);
     }
@@ -57,7 +71,10 @@ function isSorted(arr)
     return true;
 }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 function windowResized()
 {
     resizeCanvas(windowWidth, windowHeight);
