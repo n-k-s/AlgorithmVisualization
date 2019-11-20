@@ -1,5 +1,5 @@
 //initialize the array
-let n = 9;
+let n = 12;
 let bubbleArray = new Array(n);
 let timesRan = 0;
 let spacing = 80;
