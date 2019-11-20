@@ -2,7 +2,7 @@
 let n = 9;
 let bubbleArray = new Array(n);
 let timesRan = 0;
-let spacing = 50;
+let spacing = 80;
 let fr = 1;
 let i = 0;
 let j = 0;
@@ -18,6 +18,8 @@ function setup() {
 }
 
 function draw() {
+    if (!isSorted(bubbleArray))
+        bubbleSort(bubbleArray);
     background(255, 150, 135);
     drawBubble(bubbleArray);
     frameRate(.5);
@@ -47,11 +49,11 @@ function drawBubble(arr)
     for (let i = 0; i < bubbleArray.length; i++)
     {
         fill(255,204, 155-( i * 10));
-        circle(50 + (i * 95), 150, bubbleArray[i]);
+        circle(spacing + (i * 95), 150, bubbleArray[i]);
         console.log(bubbleArray[i]);
         fill(0, 102, 153);
         textAlign(CENTER, CENTER);
-        text(bubbleArray[i], 50 + (i * 95), 150);
+        text(bubbleArray[i], spacing + (i * 95), 150);
 
 
         bubbleSort(arr);
