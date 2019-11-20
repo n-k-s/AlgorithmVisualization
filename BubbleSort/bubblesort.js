@@ -1,8 +1,11 @@
 //initialize the array
-let bubbleArray = new Array(9);
+let n = 9;
+let bubbleArray = new Array(n);
 let timesRan = 0;
 let spacing = 50;
 let fr = 1;
+let i = 0;
+let j = 0;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -23,17 +26,23 @@ function draw() {
 }
 function bubbleSort(arr)
 {
-    let n = arr.length;
-    for (let i = 0; i < n-1; i++) {
-        for (let j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // swap arr[j+1] and arr[i]
-                let temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
+    if (i < n - 1)
+    {
+        if (arr[j] > arr[j + 1]) {
+            // swap arr[j+1] and arr[i]
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
         }
     }
+    j++;
+    if (j >= n - i - 1)
+    {
+        j = 0;
+        i++;
+    }
+
+
 }
 function drawBubble(arr)
 {
@@ -46,6 +55,8 @@ function drawBubble(arr)
         textAlign(CENTER, CENTER);
         text(bubbleArray[i], spacing + (i * 95), 150);
         spacing+=30;
+
+        bubbleSort(arr);
     }
 }
 function isSorted(arr)
