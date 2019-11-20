@@ -18,11 +18,9 @@ function setup() {
 }
 
 function draw() {
-    if (!isSorted(bubbleArray))
-        bubbleSort(bubbleArray);
     background(255, 150, 135);
     drawBubble(bubbleArray);
-    frameRate(fr);
+    frameRate(.5);
 }
 function bubbleSort(arr)
 {
@@ -49,12 +47,12 @@ function drawBubble(arr)
     for (let i = 0; i < bubbleArray.length; i++)
     {
         fill(255,204, 155-( i * 10));
-        circle(spacing + (i * 95), 150, bubbleArray[i]);
+        circle(50 + (i * 95), 150, bubbleArray[i]);
         console.log(bubbleArray[i]);
         fill(0, 102, 153);
         textAlign(CENTER, CENTER);
-        text(bubbleArray[i], spacing + (i * 95), 150);
-        spacing+=30;
+        text(bubbleArray[i], 50 + (i * 95), 150);
+
 
         bubbleSort(arr);
     }
