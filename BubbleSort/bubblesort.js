@@ -56,8 +56,3 @@ function isSorted(arr)
     timesRan++;
     return true;
 }
-
-function windowResized()
-{
-    resizeCanvas(windowWidth, windowHeight);
-}
