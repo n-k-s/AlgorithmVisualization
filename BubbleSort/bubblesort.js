@@ -1,5 +1,5 @@
 //initialize the array
-let bubbleArray = new Array(4);
+let bubbleArray = new Array(10);
 let timesRan = 0;
 
 function setup() {
@@ -42,6 +42,7 @@ function drawBubble(arr)
         circle(50 + (i * 95), 150, bubbleArray[i]);
         console.log(bubbleArray[i]);
         fill(0, 102, 153);
+        textAlign(CENTER, CENTER);
         text(bubbleArray[i], 50 + (i * 95), 150);
     }
 }
