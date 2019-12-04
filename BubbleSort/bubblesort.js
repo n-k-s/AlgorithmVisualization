@@ -3,7 +3,7 @@ let n = 12;
 let bubbleArray = new Array(n);
 let timesRan = 0;
 let spacing = 80;
-let fr = 1;
+let fr = 5;
 let i = 0;
 let j = 0;
 let slider;
